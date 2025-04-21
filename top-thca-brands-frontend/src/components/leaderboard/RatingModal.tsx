@@ -76,10 +76,10 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md bg-thca-black border-thca-grey/30">
+      <DialogContent className="sm:max-w-md bg-thc-black border-thc-grey/30">
         <DialogHeader>
-          <DialogTitle className="text-xl text-thca-gold">Rate {brand.name}</DialogTitle>
-          <DialogDescription className="text-thca-white/70">
+          <DialogTitle className="text-xl text-thc-gold">Rate {brand.name}</DialogTitle>
+          <DialogDescription className="text-thc-white/70">
             Rate this brand on a scale from 1-10 for each category
           </DialogDescription>
         </DialogHeader>
@@ -122,14 +122,14 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
             <Button
               variant="outline"
               onClick={onClose}
-              className="border-thca-grey/30 text-thca-white hover:bg-thca-grey/20"
+              className="border-thc-grey/30 text-thc-white hover:bg-thc-grey/20"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="bg-thca-gold text-thca-black hover:bg-thca-gold/90"
+              className="bg-thc-gold text-thc-black hover:bg-thc-gold/90"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Rating'}
             </Button>
@@ -152,11 +152,11 @@ const RatingSlider = ({ label, type, value, onChange }: RatingSliderProps) => {
     <div className="space-y-2">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <h4 className="text-sm font-medium text-thca-white">{label}</h4>
+          <h4 className="text-sm font-medium text-thc-white">{label}</h4>
           <CriteriaTooltip type={type} />
         </div>
-        <div className="text-thca-gold font-medium">
-          {value} <span className="text-xs text-thca-white/70">/ 10</span>
+        <div className="text-thc-gold font-medium">
+          {value} <span className="text-xs text-thc-white/70">/ 10</span>
         </div>
       </div>
       <Slider
@@ -165,9 +165,9 @@ const RatingSlider = ({ label, type, value, onChange }: RatingSliderProps) => {
         max={10}
         step={1}
         onValueChange={onChange}
-        className="[&>span]:bg-thca-gold"
+        className="[&>span]:bg-thc-gold"
       />
-      <div className="flex justify-between text-xs text-thca-white/50">
+      <div className="flex justify-between text-xs text-thc-white/50">
         <span>Poor</span>
         <span>Excellent</span>
       </div>

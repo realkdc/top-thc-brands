@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Shield, X } from 'lucide-react';
+import { Leaf, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,26 +29,26 @@ const Navbar = () => {
     <header
       className={cn(
         'fixed w-full top-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-thca-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'
+        scrolled ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <Shield className="h-7 w-7 text-thca-red" />
-          <span className="font-display text-xl font-bold tracking-tight text-thca-white">TOP<span className="text-thca-red">THCA</span></span>
+          <Leaf className="h-7 w-7 text-[#F1C40F]" />
+          <span className="font-display text-xl font-bold tracking-tight text-white uppercase">TOP<span className="text-[#F1C40F]">THC</span></span>
         </a>
         
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink href="#brands">Brands</NavLink>
-          <NavLink href="#about">About Us</NavLink>
-          <NavLink href="#criteria">Criteria</NavLink>
-          <NavLink href="#contact" className="bg-thca-red hover:bg-thca-red/80 px-4 py-2 rounded transition-colors">
-            Contact
+          <NavLink href="#brands">BRANDS</NavLink>
+          <NavLink href="#about">ABOUT US</NavLink>
+          <NavLink href="#criteria">CRITERIA</NavLink>
+          <NavLink href="#contact" className="bg-transparent hover:bg-[#F1C40F]/10 border border-[#F1C40F] px-4 py-2 rounded transition-colors">
+            CONTACT
           </NavLink>
         </nav>
         
         <button 
-          className="md:hidden text-thca-white"
+          className="md:hidden text-white"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
         >
@@ -64,13 +64,13 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[60px] bg-thca-black/95 backdrop-blur-md z-40 p-6">
+        <div className="md:hidden fixed inset-0 top-[60px] bg-black/95 backdrop-blur-md z-40 p-6">
           <nav className="flex flex-col items-center gap-6 pt-6">
-            <NavLink href="#brands" className="text-xl" onClick={() => setMobileMenuOpen(false)}>Brands</NavLink>
-            <NavLink href="#about" className="text-xl" onClick={() => setMobileMenuOpen(false)}>About Us</NavLink>
-            <NavLink href="#criteria" className="text-xl" onClick={() => setMobileMenuOpen(false)}>Criteria</NavLink>
-            <NavLink href="#contact" className="bg-thca-red hover:bg-thca-red/80 px-6 py-3 rounded transition-colors text-xl" onClick={() => setMobileMenuOpen(false)}>
-              Contact
+            <NavLink href="#brands" className="text-xl uppercase" onClick={() => setMobileMenuOpen(false)}>BRANDS</NavLink>
+            <NavLink href="#about" className="text-xl uppercase" onClick={() => setMobileMenuOpen(false)}>ABOUT US</NavLink>
+            <NavLink href="#criteria" className="text-xl uppercase" onClick={() => setMobileMenuOpen(false)}>CRITERIA</NavLink>
+            <NavLink href="#contact" className="bg-transparent hover:bg-[#F1C40F]/10 border border-[#F1C40F] px-6 py-3 rounded transition-colors text-xl uppercase" onClick={() => setMobileMenuOpen(false)}>
+              CONTACT
             </NavLink>
           </nav>
         </div>
@@ -94,7 +94,7 @@ const NavLink = ({
     <a 
       href={href} 
       className={cn(
-        "font-medium text-thca-white hover:text-thca-gold transition-colors",
+        "font-medium text-white hover:text-[#F1C40F] transition-colors",
         className
       )}
       onClick={onClick}

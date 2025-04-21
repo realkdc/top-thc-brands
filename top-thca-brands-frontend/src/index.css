@@ -1,74 +1,79 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 9%;
-    --foreground: 0 0% 96%;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 96%;
+html {
+  scroll-behavior: smooth;
+}
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 96%;
+/* Theme colors */
+:root {
+  --border: 222.2 47.4% 11.2%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 223.5 91.1% 42.4%;
+  --background: 0 0% 100%;
+  --foreground: 223.5 10.9% 10.2%;
+  --primary: 223.5 91.1% 42.4%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 97.1%;
+  --secondary-foreground: 223.5 10.9% 10.2%;
+  --muted: 210 40% 97.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 10 100% 41.2%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 223.5 10.9% 10.2%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 223.5 10.9% 10.2%;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 223.5 10.9% 10.2%;
+  --sidebar-primary: 223.5 91.1% 42.4%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 215.4 16.3% 46.9%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 222.2 47.4% 11.2%;
+  --sidebar-ring: 0 0% 100%;
+  --radius: 0.5rem;
+}
 
-    --primary: 0 80% 27%;
-    --primary-foreground: 0 0% 96%;
+body {
+  @apply bg-black text-white font-sans;
+}
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 96%;
+.badge {
+  @apply bg-thc-gold text-black font-bold px-3 py-1 text-sm tracking-wider uppercase rounded shadow-badge;
+}
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
+.section-title {
+  @apply font-display font-bold text-4xl md:text-5xl text-white mb-8 relative uppercase;
+}
 
-    --accent: 41 77% 54%;
-    --accent-foreground: 0 0% 10%;
+.section-title::after {
+  content: "";
+  @apply absolute bottom-0 left-0 h-1 w-16 bg-thc-gold;
+}
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 96%;
+.brand-card {
+  @apply bg-gray-900/20 border border-gray-800/30 rounded-md overflow-hidden transition-all duration-300 hover:shadow-premium;
+}
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 41 77% 54%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Animations */
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0);
   }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-thca-black text-thca-white font-sans;
-  }
-
-  .badge {
-    @apply bg-thca-gold text-thca-black font-bold px-3 py-1 text-sm tracking-wider uppercase rounded shadow-badge;
-  }
-
-  .section-title {
-    @apply font-display font-bold text-4xl md:text-5xl text-thca-white mb-8 relative;
-  }
-  
-  .section-title::after {
-    content: '';
-    @apply absolute bottom-0 left-0 h-1 w-16 bg-thca-red;
-  }
-
-  .brand-card {
-    @apply bg-thca-grey/20 border border-thca-grey/30 rounded-md overflow-hidden transition-all duration-300 hover:shadow-premium;
+  50% {
+    transform: translateY(-10px);
   }
 }

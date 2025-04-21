@@ -7,6 +7,7 @@ const path = require('path');
 
 // Import Supabase client
 const supabase = require('./utils/supabaseClient');
+const setupDatabase = require('./utils/setupDatabase');
 
 // Import routes
 const brandRoutes = require('./routes/brands');
@@ -20,8 +21,20 @@ const subscriberRoutes = require('./routes/subscriber');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// Replace MongoDB connection with Supabase connection status logging
+// Log Supabase connection info
+console.log('Initializing Supabase client with service role permissions');
+console.log('Using URL:', process.env.SUPABASE_URL);
+console.log('Service key provided:', process.env.SUPABASE_SERVICE_KEY ? 'Yes' : 'No');
+
+// Initialize Supabase connection and setup database tables
 console.log('Initializing Supabase connection...');
+setupDatabase().then(success => {
+  if (success) {
+    console.log('✅ Database setup completed successfully');
+  } else {
+    console.error('❌ Database setup failed');
+  }
+});
 
 // Test the Supabase connection by making a simple query
 supabase.from('brands').select('count').then(({ data, error }) => {
@@ -59,17 +72,17 @@ app.use(cors({
     
     // Define allowed origins - both with and without trailing slash
     const allowedOrigins = [
-      'https://topthcabrands.netlify.app',
-      'https://topthcabrands.netlify.app/',
-      'http://topthcabrands.com',
-      'https://topthcabrands.com',
-      'http://www.topthcabrands.com',
-      'https://www.topthcabrands.com',
+      'https://topthcbrands.netlify.app',
+      'https://topthcbrands.netlify.app/',
+      'http://topthcbrands.com',
+      'https://topthcbrands.com',
+      'http://www.topthcbrands.com',
+      'https://www.topthcbrands.com',
       // With trailing slashes
-      'http://topthcabrands.com/',
-      'https://topthcabrands.com/',
-      'http://www.topthcabrands.com/',
-      'https://www.topthcabrands.com/',
+      'http://topthcbrands.com/',
+      'https://topthcbrands.com/',
+      'http://www.topthcbrands.com/',
+      'https://www.topthcbrands.com/',
       process.env.CLIENT_URL,
       process.env.CLIENT_URL + '/',
       'http://localhost:5173',
@@ -120,7 +133,7 @@ app.get('/health', (req, res) => {
 // API root route
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Top THCA Brands API', 
+    message: 'Top THC Brands API', 
     version: '1.0.0',
     endpoints: [
       '/api/brands',

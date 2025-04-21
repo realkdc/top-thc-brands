@@ -1,81 +1,79 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const supabase = require('./src/utils/supabaseClient');
-const { v4: uuidv4 } = require('uuid');
 
 /**
  * Create an admin user in the Supabase database
  */
 async function createAdminUser() {
-  console.log('Creating admin user in Supabase...');
+  console.log('Force creating admin user...');
   
   try {
-    // Admin user details
-    const adminEmail = 'keshaun@indieplantmarketing.com';
-    const adminPassword = '605Legends.';
-    const adminName = 'KeShaun';
+    // Default admin credentials
+    const adminEmail = 'admin@topthcbrands.com';
+    const adminPassword = 'Thc@dmin2024'; // In a production environment, use a secure password
+    const adminName = 'Admin User';
     
-    // Check if user already exists
-    console.log(`Checking if user ${adminEmail} already exists...`);
-    const { data: existingUser, error: checkError } = await supabase
-      .from('users')
-      .select('*')
-      .eq('email', adminEmail)
-      .maybeSingle();
-    
-    if (checkError) {
-      throw new Error(`Error checking for existing user: ${checkError.message}`);
+    // Check if users table exists
+    try {
+      // Try to delete any existing user with the same email to avoid conflicts
+      console.log(`Checking for existing user with email: ${adminEmail}`);
+      const { error: deleteError } = await supabase
+        .from('users')
+        .delete()
+        .eq('email', adminEmail);
+      
+      console.log(`Note: Delete operation result: ${deleteError ? deleteError.message : 'success'}`);
+    } catch (err) {
+      console.log('Note: Error during delete check, may be first run:', err.message);
     }
     
-    if (existingUser) {
-      console.log('✅ Admin user already exists:');
-      console.log({
-        name: existingUser.name,
-        email: existingUser.email,
-        role: existingUser.role
-      });
-      return;
-    }
+    console.log('Creating new admin user...');
     
-    // Hash password
-    console.log('Hashing password...');
+    // Hash the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(adminPassword, salt);
     
-    // Create user with UUID
-    const userId = uuidv4();
-    
-    // Insert user into Supabase
-    const { data: newUser, error: insertError } = await supabase
+    // Insert the admin user
+    const { data: user, error } = await supabase
       .from('users')
       .insert([
         {
-          id: userId,
-          name: adminName,
           email: adminEmail,
           password: hashedPassword,
-          role: 'admin',
-          created_at: new Date().toISOString()
+          name: adminName,
+          role: 'admin'
         }
       ])
-      .select()
-      .single();
+      .select();
     
-    if (insertError) {
-      throw new Error(`Error creating admin user: ${insertError.message}`);
+    if (error) {
+      throw new Error(`Error inserting user: ${error.message}`);
     }
     
     console.log('✅ Admin user created successfully:');
-    console.log({
-      name: newUser.name,
-      email: newUser.email,
-      role: newUser.role
-    });
+    console.log(`Email: ${adminEmail}`);
+    console.log(`Password: ${adminPassword}`);
+    console.log('ID:', user[0].id);
     
+    return true;
   } catch (error) {
     console.error('❌ Error:', error.message);
+    return false;
   }
 }
 
 // Run the function
-createAdminUser(); 
+createAdminUser()
+  .then((success) => {
+    if (success) {
+      console.log('Admin creation process completed successfully');
+    } else {
+      console.error('Admin creation process failed');
+    }
+    process.exit(success ? 0 : 1);
+  })
+  .catch((err) => {
+    console.error('Unhandled error:', err);
+    process.exit(1);
+  }); 

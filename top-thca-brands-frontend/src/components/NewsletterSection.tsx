@@ -3,43 +3,43 @@ import NewsletterForm from './NewsletterForm';
 
 const NewsletterSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-thca-black to-thca-black/95">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-black border-t border-white/10">
+      <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="section-title mb-4">Get Exclusive THCA Deals</h2>
-          <p className="text-thca-white/80 mb-8 max-w-2xl mx-auto">
+          <h2 className="section-title mb-6">GET EXCLUSIVE THC DEALS</h2>
+          <p className="text-white/80 mb-12 max-w-2xl mx-auto uppercase text-sm tracking-wide">
             Subscribe to our newsletter and receive exclusive deals, industry news, and early access to product reviews
-            from the top THCA brands.
+            from the top THC brands.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            <div className="bg-thca-grey/10 p-6 rounded-lg border border-thca-grey/30">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-thca-gold/20 text-thca-gold mb-4">
-                <Tag size={24} />
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="border border-white/10 p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 text-[#F1C40F] mb-4">
+                <Tag size={24} strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-thca-white mb-2">Exclusive Discounts</h3>
-              <p className="text-sm text-thca-white/70">
+              <h3 className="text-lg font-bold text-white mb-3 uppercase">Exclusive Discounts</h3>
+              <p className="text-sm text-white/70">
                 Get access to subscriber-only coupon codes and special promotions from premium brands.
               </p>
             </div>
             
-            <div className="bg-thca-grey/10 p-6 rounded-lg border border-thca-grey/30">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-thca-gold/20 text-thca-gold mb-4">
-                <Bell size={24} />
+            <div className="border border-white/10 p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 text-[#F1C40F] mb-4">
+                <Bell size={24} strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-thca-white mb-2">New Product Alerts</h3>
-              <p className="text-sm text-thca-white/70">
+              <h3 className="text-lg font-bold text-white mb-3 uppercase">New Product Alerts</h3>
+              <p className="text-sm text-white/70">
                 Be the first to know when top brands release new products or limited edition items.
               </p>
             </div>
             
-            <div className="bg-thca-grey/10 p-6 rounded-lg border border-thca-grey/30">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-thca-gold/20 text-thca-gold mb-4">
-                <Mail size={24} />
+            <div className="border border-white/10 p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 text-[#F1C40F] mb-4">
+                <Mail size={24} strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-thca-white mb-2">Expert Insights</h3>
-              <p className="text-sm text-thca-white/70">
-                Get curated content on the latest trends, lab results, and expert opinions on premium THCA products.
+              <h3 className="text-lg font-bold text-white mb-3 uppercase">Expert Insights</h3>
+              <p className="text-sm text-white/70">
+                Get curated content on the latest trends, lab results, and expert opinions on premium THC products.
               </p>
             </div>
           </div>
@@ -47,13 +47,12 @@ const NewsletterSection = () => {
           <div className="max-w-md mx-auto">
             <NewsletterForm
               source="newsletter_section"
-              buttonText="Join Now"
+              buttonText="JOIN NOW"
               placeholderText="Your email address"
-              className="mb-3"
+              className="mb-4"
             />
-            <p className="text-xs text-thca-white/50">
-              By subscribing, you agree to receive marketing emails from Top THCA Brands. 
-              We respect your privacy and you can unsubscribe at any time.
+            <p className="text-xs text-white/50 uppercase tracking-wider">
+              By subscribing, you agree to receive marketing emails from TOP THC BRANDS.
             </p>
           </div>
         </div>

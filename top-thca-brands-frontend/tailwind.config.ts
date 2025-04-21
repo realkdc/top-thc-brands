@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,12 +62,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				thca: {
-					red: '#8B0000',
-					black: '#181818',
-					white: '#F5F5F5',
-					gold: '#D4AF37',
-					cream: '#F5F2E3',
+				thc: {
+					red: '#E53935',
+					black: '#000000',
+					white: '#FFFFFF',
+					gold: '#F1C40F',
 					grey: '#333333'
 				}
 			},
@@ -106,10 +104,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						'text-shadow': '0 0 5px rgba(212, 175, 55, 0.3)'
+						'text-shadow': '0 0 5px rgba(242, 201, 76, 0.3)'
 					},
 					'50%': {
-						'text-shadow': '0 0 20px rgba(212, 175, 55, 0.7)'
+						'text-shadow': '0 0 20px rgba(242, 201, 76, 0.7)'
 					},
 				}
 			},
@@ -129,7 +127,7 @@ export default {
 			},
 			boxShadow: {
 				'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.3)',
-				'badge': '0 4px 12px rgba(212, 175, 55, 0.25)'
+				'badge': '0 4px 12px rgba(242, 201, 76, 0.25)'
 			}
 		}
 	},

@@ -337,7 +337,7 @@ const ContactManagement = () => {
               <Button variant="outline" size="sm" onClick={() => setViewOpen(false)} className="h-8 text-xs border-gray-600 bg-gray-700 text-white font-medium">
                 Close
               </Button>
-              <Button size="sm" onClick={handleUpdateStatus} className="h-8 text-xs bg-thca-red hover:bg-thca-red/90 text-white font-bold">
+              <Button size="sm" onClick={handleUpdateStatus} className="h-8 text-xs bg-thc-red hover:bg-thc-red/90 text-white font-bold">
                 Update Status
               </Button>
             </DialogFooter>

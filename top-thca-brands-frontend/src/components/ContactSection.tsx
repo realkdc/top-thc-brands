@@ -58,110 +58,110 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-thca-black relative">
-      <div className="container mx-auto px-4">
-        <h2 className="section-title">Submit Your Brand</h2>
-        <div className="flex flex-col lg:flex-row gap-12">
+    <section id="contact" className="py-24 bg-black relative">
+      <div className="container mx-auto px-6">
+        <h2 className="section-title">SUBMIT YOUR BRAND</h2>
+        <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/2">
-            <p className="text-thca-white/70 mb-6">
-              Think your brand stands out from the rest? We're always looking for exceptional THCA products that meet our rigorous standards.
+            <p className="text-white/70 mb-10 uppercase text-sm tracking-wide">
+              Think your brand stands out from the rest? We're always looking for exceptional THC products that meet our rigorous standards.
             </p>
             
-            <div className="bg-thca-grey/10 border border-thca-grey/30 p-6 rounded-lg mb-8">
-              <h3 className="font-display text-xl font-bold mb-4 text-thca-white">
-                What happens next?
+            <div className="border border-white/10 p-8 mb-8">
+              <h3 className="font-display text-xl font-bold mb-6 text-white uppercase">
+                WHAT HAPPENS NEXT
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-6">
                 <li className="flex items-start">
-                  <span className="bg-thca-gold text-thca-black font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
-                  <span className="text-thca-white/80">Our team reviews your submission within 5-7 business days</span>
+                  <span className="border border-[#F1C40F] text-[#F1C40F] font-bold w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">01</span>
+                  <span className="text-white/80 text-sm">Our team reviews your submission within 5-7 business days</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-thca-gold text-thca-black font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
-                  <span className="text-thca-white/80">If your brand meets initial criteria, we request product samples</span>
+                  <span className="border border-[#F1C40F] text-[#F1C40F] font-bold w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">02</span>
+                  <span className="text-white/80 text-sm">If your brand meets initial criteria, we request product samples</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-thca-gold text-thca-black font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
-                  <span className="text-thca-white/80">Products undergo our thorough evaluation process</span>
+                  <span className="border border-[#F1C40F] text-[#F1C40F] font-bold w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">03</span>
+                  <span className="text-white/80 text-sm">Products undergo our thorough evaluation process</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="bg-thca-gold text-thca-black font-bold rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
-                  <span className="text-thca-white/80">Selected brands are featured in our elite lineup</span>
+                  <span className="border border-[#F1C40F] text-[#F1C40F] font-bold w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">04</span>
+                  <span className="text-white/80 text-sm">Selected brands are featured in our elite lineup</span>
                 </li>
               </ul>
             </div>
           </div>
           
           <div className="lg:w-1/2">
-            <form onSubmit={handleSubmit} className="bg-thca-grey/10 border border-thca-grey/30 p-8 rounded-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <form onSubmit={handleSubmit} className="border border-white/10 p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm text-thca-white/70">Your Name</label>
+                  <label htmlFor="name" className="text-xs text-white/70 uppercase tracking-wider">Your Name</label>
                   <Input
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                    className="bg-black border-white/20 focus:border-[#F1C40F] text-white"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm text-thca-white/70">Email Address</label>
+                  <label htmlFor="email" className="text-xs text-white/70 uppercase tracking-wider">Email Address</label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                    className="bg-black border-white/20 focus:border-[#F1C40F] text-white"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="brandName" className="text-sm text-thca-white/70">Brand Name</label>
+                  <label htmlFor="brandName" className="text-xs text-white/70 uppercase tracking-wider">Brand Name</label>
                   <Input
                     id="brandName"
                     name="brandName"
                     value={formData.brandName}
                     onChange={handleChange}
-                    className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                    className="bg-black border-white/20 focus:border-[#F1C40F] text-white"
                     required
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="website" className="text-sm text-thca-white/70">Website (Optional)</label>
+                  <label htmlFor="website" className="text-xs text-white/70 uppercase tracking-wider">Website (Optional)</label>
                   <Input
                     id="website"
                     name="website"
                     value={formData.website}
                     onChange={handleChange}
-                    className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                    className="bg-black border-white/20 focus:border-[#F1C40F] text-white"
                   />
                 </div>
               </div>
               
-              <div className="space-y-2 mb-8">
-                <label htmlFor="message" className="text-sm text-thca-white/70">Tell us about your brand</label>
+              <div className="space-y-2 mb-10">
+                <label htmlFor="message" className="text-xs text-white/70 uppercase tracking-wider">Tell us about your brand</label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white min-h-[120px]"
+                  className="bg-black border-white/20 focus:border-[#F1C40F] text-white min-h-[150px]"
                   required
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-thca-red hover:bg-thca-red/90 text-thca-white font-medium py-5" 
+                className="w-full bg-transparent hover:bg-[#F1C40F]/10 text-white border border-[#F1C40F] font-bold py-6 uppercase tracking-wider rounded-none" 
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Your Brand'}
+                {isSubmitting ? 'SUBMITTING...' : 'SUBMIT YOUR BRAND'}
               </Button>
             </form>
           </div>

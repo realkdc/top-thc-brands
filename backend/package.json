@@ -1,7 +1,7 @@
 {
-  "name": "top-thca-brands-backend",
+  "name": "top-thc-brands-backend",
   "version": "1.0.0",
-  "description": "Backend for Top THCA Brands website",
+  "description": "Backend for Top THC Brands website",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

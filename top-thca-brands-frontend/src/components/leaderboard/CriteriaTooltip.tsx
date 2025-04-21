@@ -28,11 +28,11 @@ const CriteriaTooltip = ({ type, criteria }: CriteriaTooltipProps) => {
       <Tooltip>
         <TooltipTrigger asChild>
           <span className="inline-flex items-center cursor-help">
-            <Info className="h-4 w-4 ml-1 text-thca-white/50 hover:text-thca-gold" />
+            <Info className="h-4 w-4 ml-1 text-thc-white/50 hover:text-thc-gold" />
           </span>
         </TooltipTrigger>
-        <TooltipContent className="bg-thca-black border-thca-grey/30 p-3 max-w-[250px]">
-          <p className="text-xs text-thca-white">{criteriaDescriptions[tooltipType]}</p>
+        <TooltipContent className="bg-thc-black border-thc-grey/30 p-3 max-w-[250px]">
+          <p className="text-xs text-thc-white">{criteriaDescriptions[tooltipType]}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

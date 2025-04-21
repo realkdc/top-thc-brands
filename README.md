@@ -1,10 +1,10 @@
-# Top THCA Brands Website
+# Top THC Brands Website
 
-A professional website showcasing premium THCA brands with a content management system, brand submission functionality, and traffic tracking capabilities.
+A professional website showcasing premium THC brands with a content management system, brand submission functionality, and traffic tracking capabilities.
 
 ## Project Overview
 
-Top THCA Brands is a curated directory of premium THCA products and brands, serving as an authority for spotlighting elite THCA brands. The platform includes both a public-facing website and an admin dashboard for content management.
+Top THC Brands is a curated directory of premium THC products and brands, serving as an authority for spotlighting elite THC brands. The platform includes both a public-facing website and an admin dashboard for content management.
 
 ## Table of Contents
 

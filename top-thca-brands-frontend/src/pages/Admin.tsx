@@ -33,7 +33,7 @@ const Admin = () => {
     <div className="min-h-screen bg-slate-100">
       <header className="bg-gray-900 text-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">Top THCA Brands - Admin Dashboard</h1>
+          <h1 className="text-xl font-bold">Top THC Brands - Admin Dashboard</h1>
           <Button variant="outline" onClick={handleLogout}>Logout</Button>
         </div>
       </header>
@@ -68,7 +68,7 @@ const Admin = () => {
       <footer className="bg-gray-900 text-white py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Top THCA Brands - Admin Portal
+            &copy; {new Date().getFullYear()} Top THC Brands - Admin Portal
           </p>
         </div>
       </footer>

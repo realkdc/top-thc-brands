@@ -44,10 +44,10 @@ const NewsletterPopup = ({
   
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
-      <div className="relative bg-thca-black max-w-md w-full rounded-lg border border-thca-grey/30 shadow-xl">
+      <div className="relative bg-thc-black max-w-md w-full rounded-lg border border-thc-grey/30 shadow-xl">
         <button 
           onClick={closePopup}
-          className="absolute top-3 right-3 text-thca-white/70 hover:text-thca-white"
+          className="absolute top-3 right-3 text-thc-white/70 hover:text-thc-white"
           aria-label="Close popup"
         >
           <X size={20} />
@@ -55,17 +55,17 @@ const NewsletterPopup = ({
         
         <div className="p-6">
           <div className="flex justify-center mb-4">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-thca-gold/20 text-thca-gold">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-thc-gold/20 text-thc-gold">
               <Gift size={32} />
             </div>
           </div>
           
-          <h3 className="text-xl font-bold text-thca-white text-center mb-2">
-            Exclusive THCA Deals
+          <h3 className="text-xl font-bold text-thc-white text-center mb-2">
+            Exclusive THC Deals
           </h3>
           
-          <p className="text-thca-white/80 text-center mb-6">
-            Join our newsletter and get exclusive deals and discounts from top THCA brands delivered to your inbox.
+          <p className="text-thc-white/80 text-center mb-6">
+            Join our newsletter and get exclusive deals and discounts from top THC brands delivered to your inbox.
           </p>
           
           <NewsletterForm 
@@ -75,14 +75,14 @@ const NewsletterPopup = ({
             className="mb-3"
           />
           
-          <p className="text-xs text-center text-thca-white/50">
+          <p className="text-xs text-center text-thc-white/50">
             We respect your privacy. You can unsubscribe at any time.
           </p>
           
-          <div className="mt-4 pt-4 border-t border-thca-grey/20 text-center">
+          <div className="mt-4 pt-4 border-t border-thc-grey/20 text-center">
             <button 
               onClick={closePopup}
-              className="text-sm text-thca-white/50 hover:text-thca-white"
+              className="text-sm text-thc-white/50 hover:text-thc-white"
             >
               No thanks, I'm not interested
             </button>

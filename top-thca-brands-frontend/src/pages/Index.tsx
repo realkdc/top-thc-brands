@@ -11,7 +11,7 @@ import NewsletterPopup from "@/components/NewsletterPopup";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-thca-black">
+    <div className="min-h-screen flex flex-col bg-thc-black">
       <Navbar />
       <Hero />
       <BrandSection />

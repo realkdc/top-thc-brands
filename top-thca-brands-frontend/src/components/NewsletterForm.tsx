@@ -63,7 +63,7 @@ const NewsletterForm = ({
   };
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={`flex flex-col sm:flex-row gap-2 ${className}`}>
+    <form onSubmit={handleSubmit(onSubmit)} className={`flex flex-col sm:flex-row gap-3 ${className}`}>
       <div className="flex-1">
         <Input
           {...register('email', {
@@ -75,7 +75,7 @@ const NewsletterForm = ({
           })}
           placeholder={placeholderText}
           type="email"
-          className={`w-full bg-opacity-20 border-thca-grey ${errors.email ? 'border-red-500' : ''}`}
+          className={`w-full bg-black border-white/20 focus:border-[#F1C40F] text-white ${errors.email ? 'border-red-500' : ''}`}
           disabled={isSubmitting}
         />
         {errors.email && (
@@ -85,10 +85,10 @@ const NewsletterForm = ({
       
       <Button 
         type="submit" 
-        className="bg-thca-gold hover:bg-thca-gold/90 text-thca-black font-semibold min-w-28"
+        className="bg-transparent hover:bg-[#F1C40F]/10 text-white border border-[#F1C40F] font-bold py-3 uppercase tracking-wider rounded-none min-w-32"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Subscribing...' : buttonText}
+        {isSubmitting ? 'SUBSCRIBING...' : buttonText}
       </Button>
     </form>
   );

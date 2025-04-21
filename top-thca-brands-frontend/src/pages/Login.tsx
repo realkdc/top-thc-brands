@@ -43,37 +43,37 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-thca-black p-4">
+    <div className="min-h-screen flex items-center justify-center bg-thc-black p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-thca-white mb-2">Admin Login</h1>
-          <p className="text-thca-white/70">Sign in to access the admin dashboard</p>
+          <h1 className="text-3xl font-bold text-thc-white mb-2">Admin Login</h1>
+          <p className="text-thc-white/70">Sign in to access the admin dashboard</p>
         </div>
         
-        <form onSubmit={handleSubmit} className="bg-thca-grey/10 border border-thca-grey/30 p-8 rounded-lg">
+        <form onSubmit={handleSubmit} className="bg-thc-grey/10 border border-thc-grey/30 p-8 rounded-lg">
           <div className="space-y-4">
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm text-thca-white/70">Email</label>
+              <label htmlFor="email" className="text-sm text-thc-white/70">Email</label>
               <Input
                 id="email"
                 name="email"
                 type="email"
                 value={credentials.email}
                 onChange={handleChange}
-                className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                className="bg-thc-grey/20 border-thc-grey/30 focus:border-thc-gold text-thc-white"
                 required
               />
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="password" className="text-sm text-thca-white/70">Password</label>
+              <label htmlFor="password" className="text-sm text-thc-white/70">Password</label>
               <Input
                 id="password"
                 name="password"
                 type="password"
                 value={credentials.password}
                 onChange={handleChange}
-                className="bg-thca-grey/20 border-thca-grey/30 focus:border-thca-gold text-thca-white"
+                className="bg-thc-grey/20 border-thc-grey/30 focus:border-thc-gold text-thc-white"
                 required
               />
             </div>
@@ -81,7 +81,7 @@ const Login = () => {
           
           <Button 
             type="submit" 
-            className="w-full mt-6 bg-thca-red hover:bg-thca-red/90 text-thca-white"
+            className="w-full mt-6 bg-thc-red hover:bg-thc-red/90 text-thc-white"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
