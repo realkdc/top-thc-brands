@@ -163,9 +163,9 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
 
           <div className="flex justify-end space-x-2">
             <Button
-              variant="outline"
+              variant="outline" 
               onClick={onClose}
-              className="border-thc-grey/40 text-thc-white hover:bg-thc-grey/20"
+              className="bg-gray-600 border-white text-white font-medium hover:bg-gray-700"
             >
               Cancel
             </Button>
