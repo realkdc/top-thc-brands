@@ -114,11 +114,10 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
       <DialogContent className="sm:max-w-md bg-thc-black/90 border-thc-grey/30">
         <button 
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full bg-thc-grey/30 hover:bg-thc-grey/50 p-1.5 transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-thc-gold focus:ring-offset-2 disabled:pointer-events-none z-10"
+          className="absolute right-4 top-4 flex items-center justify-center w-10 h-10 bg-thc-gold text-black font-bold rounded-full border-2 border-white z-10"
           aria-label="Close dialog"
         >
-          <X className="h-6 w-6 text-thc-white" style={{stroke: "white", strokeWidth: 3}} />
-          <span className="sr-only">Close</span>
+          <span className="text-lg">X</span>
         </button>
         
         <DialogHeader>
