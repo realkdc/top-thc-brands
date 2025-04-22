@@ -25,13 +25,13 @@ const CriteriaTooltip = ({ type, criteria }: CriteriaTooltipProps) => {
   
   return (
     <TooltipProvider>
-      <Tooltip>
+      <Tooltip delayDuration={100}>
         <TooltipTrigger asChild>
           <span className="inline-flex items-center cursor-help">
             <Info className="h-4 w-4 ml-1 text-thc-white/50 hover:text-thc-gold" />
           </span>
         </TooltipTrigger>
-        <TooltipContent className="bg-thc-black border-thc-grey/30 p-3 max-w-[250px]">
+        <TooltipContent side="top" className="bg-thc-black border-thc-grey/30 p-3 max-w-[250px]">
           <p className="text-xs text-thc-white">{criteriaDescriptions[tooltipType]}</p>
         </TooltipContent>
       </Tooltip>

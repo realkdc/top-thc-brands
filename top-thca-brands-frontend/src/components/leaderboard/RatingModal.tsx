@@ -7,7 +7,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogClose,
 } from '@/components/ui/dialog';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
@@ -78,11 +77,14 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md bg-thc-black/90 border-thc-grey/30 relative">
-        <DialogClose className="absolute right-4 top-4 rounded-sm ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:pointer-events-none">
+      <DialogContent className="sm:max-w-md bg-thc-black/90 border-thc-grey/30">
+        <button 
+          onClick={onClose}
+          className="absolute right-4 top-4 rounded-sm transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:pointer-events-none z-10"
+        >
           <X className="h-5 w-5 text-thc-white hover:text-thc-gold" />
           <span className="sr-only">Close</span>
-        </DialogClose>
+        </button>
         
         <DialogHeader>
           <DialogTitle className="text-xl text-thc-gold">Rate {brand.name}</DialogTitle>
