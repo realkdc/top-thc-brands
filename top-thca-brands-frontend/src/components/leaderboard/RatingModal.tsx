@@ -7,10 +7,12 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from '@/components/ui/dialog';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import CriteriaTooltip from './CriteriaTooltip';
+import { X } from 'lucide-react';
 
 interface BrandRatings {
   potency: number;
@@ -76,10 +78,15 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md bg-thc-black border-thc-grey/30">
+      <DialogContent className="sm:max-w-md bg-thc-black/90 border-thc-grey/30 relative">
+        <DialogClose className="absolute right-4 top-4 rounded-sm ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:pointer-events-none">
+          <X className="h-5 w-5 text-thc-white hover:text-thc-gold" />
+          <span className="sr-only">Close</span>
+        </DialogClose>
+        
         <DialogHeader>
           <DialogTitle className="text-xl text-thc-gold">Rate {brand.name}</DialogTitle>
-          <DialogDescription className="text-thc-white/70">
+          <DialogDescription className="text-thc-white/80">
             Rate this brand on a scale from 1-10 for each category
           </DialogDescription>
         </DialogHeader>
@@ -122,7 +129,7 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
             <Button
               variant="outline"
               onClick={onClose}
-              className="border-thc-grey/30 text-thc-white hover:bg-thc-grey/20"
+              className="border-thc-grey/40 text-thc-white hover:bg-thc-grey/20"
             >
               Cancel
             </Button>
@@ -167,7 +174,7 @@ const RatingSlider = ({ label, type, value, onChange }: RatingSliderProps) => {
         onValueChange={onChange}
         className="[&>span]:bg-thc-gold"
       />
-      <div className="flex justify-between text-xs text-thc-white/50">
+      <div className="flex justify-between text-xs text-thc-white/60">
         <span>Poor</span>
         <span>Excellent</span>
       </div>
