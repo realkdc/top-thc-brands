@@ -4,6 +4,7 @@ import { useToast } from '@/components/ui/use-toast';
 import RatingModal from './RatingModal';
 import CriteriaTooltip from './CriteriaTooltip';
 import { Star, ThumbsUp, Award, TrendingUp, Info } from 'lucide-react';
+import { submitPendingRatings, getPendingRatingsCount } from '@/utils/pendingRatings';
 
 interface BrandRatings {
   potency: number;
@@ -51,6 +52,33 @@ const LeaderboardSection = () => {
     };
 
     fetchLeaderboard();
+    
+    // Attempt to submit any pending ratings
+    const attemptPendingRatings = async () => {
+      try {
+        const pendingCount = getPendingRatingsCount();
+        if (pendingCount > 0) {
+          // Try to submit pending ratings
+          const successCount = await submitPendingRatings();
+          
+          // If we successfully submitted any, refresh the leaderboard and notify the user
+          if (successCount > 0) {
+            toast({
+              title: "Ratings Submitted",
+              description: `Successfully submitted ${successCount} pending rating${successCount > 1 ? 's' : ''}.`,
+              duration: 3000,
+            });
+            // Refresh the leaderboard data
+            fetchLeaderboard();
+          }
+        }
+      } catch (error) {
+        console.error("Error submitting pending ratings:", error);
+      }
+    };
+    
+    // Wait a bit before trying to submit pending ratings
+    setTimeout(attemptPendingRatings, 3000);
   }, [toast]);
 
   const handleSortChange = (criteria: keyof BrandRatings) => {

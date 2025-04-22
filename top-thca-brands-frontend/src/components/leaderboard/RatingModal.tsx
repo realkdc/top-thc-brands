@@ -57,7 +57,19 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
   const handleSubmit = async () => {
     try {
       setIsSubmitting(true);
-      await rateBrand(brand._id, ratings);
+      
+      // Set timeout to handle potential slow responses from free Render instances
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Request timed out')), 8000)
+      );
+
+      // Race between the actual API call and the timeout
+      await Promise.race([
+        rateBrand(brand._id, ratings),
+        timeoutPromise
+      ]);
+      
+      // If successful, show success toast and close
       toast({
         title: 'Rating Submitted',
         description: `Your rating for ${brand.name} has been recorded.`,
@@ -65,11 +77,33 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
       onSuccess();
     } catch (error) {
       console.error('Error submitting rating:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to submit your rating. Please try again later.',
-        variant: 'destructive',
-      });
+      
+      // Check if the error is due to server being spun down (common with free Render instance)
+      const isFreeInstanceError = error.message?.includes('timeout') || 
+                                  error.message?.includes('Network Error') ||
+                                  !error.response;
+      
+      if (isFreeInstanceError) {
+        toast({
+          title: 'Service Starting Up',
+          description: 'Our free server may be spinning up. Your rating will be stored and submitted when services resume.',
+          variant: 'default',
+        });
+        
+        // Store the rating locally for potential resubmission later
+        const storedRatings = JSON.parse(localStorage.getItem('pendingRatings') || '[]');
+        storedRatings.push({ brandId: brand._id, ratings, timestamp: new Date().toISOString() });
+        localStorage.setItem('pendingRatings', JSON.stringify(storedRatings));
+        
+        // Consider it a success since we've saved it locally
+        onSuccess();
+      } else {
+        toast({
+          title: 'Error',
+          description: 'Failed to submit your rating. Please try again later.',
+          variant: 'destructive',
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -82,7 +116,7 @@ const RatingModal = ({ brand, isOpen, onClose, onSuccess }: RatingModalProps) =>
           onClick={onClose}
           className="absolute right-4 top-4 rounded-sm transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:pointer-events-none z-10"
         >
-          <X className="h-5 w-5 text-thc-white hover:text-thc-gold" />
+          <X className="h-5 w-5 text-thc-white" style={{stroke: "white", strokeWidth: 2.5}} />
           <span className="sr-only">Close</span>
         </button>
         
